@@ -170,32 +170,36 @@ const App = () => {
         id: 'lane1',
         title: '不站边',
         cards: initData,
-      },
-
-      {
-        id: 'lane6',
-        title: '疑似狼人',
-        cards: [],
-        style: {
-          backgroundColor: 'pink',
-        },
+        // label : <Icon type="normal" />,
       },
 
       {
         id: 'lane2',
         title: '疑似预言家',
+        label: <Icon type="eye" />,
         cards: [],
         style: {
-          backgroundColor: '@eec',
+          backgroundColor: '#eec',
         },
       },
 
       {
         id: 'lane3',
         title: '疑似女巫',
+        label: <Icon type="witch" />,
         cards: [],
         style: {
           backgroundColor: '#eec',
+        },
+      },
+
+      {
+        id: 'lane6',
+        title: '疑似狼人',
+        label: <Icon type="wolf" />,
+        cards: [],
+        style: {
+          backgroundColor: 'pink',
         },
       },
 
