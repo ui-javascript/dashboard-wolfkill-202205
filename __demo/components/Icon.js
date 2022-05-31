@@ -1,4 +1,4 @@
-const imgMap = {
+export const imgMap = {
   witch:
     'https://luo0412.oss-cn-hangzhou.aliyuncs.com/1653995363190-6iWwbFHcfM2t.png',
   eye: 'https://luo0412.oss-cn-hangzhou.aliyuncs.com/1653995351777-hdfppW38JYYk.png',
@@ -10,7 +10,7 @@ const imgMap = {
   wolf: 'https://luo0412.oss-cn-hangzhou.aliyuncs.com/1653995359258-2zsDCryDRMxy.png',
 };
 
-const nameMap = {
+export const nameMap = {
   witch: '女巫',
   eye: '预言家',
   shield: '白痴',
@@ -24,7 +24,6 @@ const Icon = (props) => {
     return '';
   }
 
-  // return nameMap[props.type]
   return (
     <>
       <img
