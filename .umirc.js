@@ -40,9 +40,9 @@ export default defineConfig({
   // esbuild: {},
   hash: true,
   // history: { type: 'hash' },
-  mfsu: {
-    //   // production: { output: '.mfsu-production' }
-  },
+  // mfsu: {
+  //   //   // production: { output: '.mfsu-production' }
+  // },
   // fastRefresh: {},
 
   // @todo 多页面配置总有问题
