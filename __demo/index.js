@@ -175,7 +175,7 @@ const App = () => {
 
       {
         id: 'lane2',
-        title: '疑似预言家',
+        title: '我是预言家',
         label: <Icon type="eye" />,
         cards: [],
         style: {
@@ -185,8 +185,8 @@ const App = () => {
 
       {
         id: 'lane3',
-        title: '疑似女巫',
-        label: <Icon type="witch" />,
+        title: '我才是预言家',
+        label: <Icon type="eye" />,
         cards: [],
         style: {
           backgroundColor: '#eec',
@@ -195,7 +195,7 @@ const App = () => {
 
       {
         id: 'lane6',
-        title: '疑似狼人',
+        title: '大概率是狼人',
         label: <Icon type="wolf" />,
         cards: [],
         style: {
