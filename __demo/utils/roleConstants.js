@@ -1,8 +1,8 @@
 export const roleConstants = [
   'eye',
   'witch',
-  'shield',
   'gun',
+  'shield',
   'normal',
   'wolf',
   null,

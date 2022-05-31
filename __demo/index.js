@@ -11,96 +11,106 @@ const setEventBus = (handle) => {
   eventBus = handle;
 };
 
+const initData = [
+  {
+    id: 1,
+    title: '1#小苍',
+  },
+
+  {
+    id: 2,
+    title: '2#少帮主',
+  },
+
+  {
+    id: 3,
+    title: '3#老党',
+  },
+
+  {
+    id: 4,
+    title: '4#囚徒',
+  },
+
+  {
+    id: 5,
+    title: '5#2009',
+  },
+
+  {
+    id: 6,
+    title: '6#桃子',
+  },
+
+  {
+    id: 7,
+    title: '7#鼠大王',
+  },
+
+  {
+    id: 8,
+    title: '8#李斯',
+  },
+
+  {
+    id: 9,
+    title: '9#沐沐',
+  },
+
+  {
+    id: 10,
+    title: '10#KS',
+  },
+
+  {
+    id: 11,
+    title: '11#JY',
+  },
+
+  {
+    id: 12,
+    title: '12#大宝',
+  },
+];
+
 const App = () => {
   const [roles, setRoles] = useState({});
 
-  const [data, setData] = useState([
-    {
-      id: 1,
-      title: '不站队',
-      editable: false,
-      // label: '2/2',
-      cards: [
-        {
-          id: 1,
-          title: '小苍',
-        },
+  const [data, setData] = useState({
+    lanes: [
+      {
+        id: 'lane1',
+        title: '不站边',
+        editable: false,
+        // label: '2/2',
+        cards: initData,
+      },
 
-        {
-          id: 2,
-          title: '少帮主',
-        },
+      {
+        id: 'lane2',
+        title: '我是预言家',
+        cards: [],
+      },
 
-        {
-          id: 3,
-          title: '老党',
-        },
+      {
+        id: 'lane3',
+        title: '我才是预言家',
+        cards: [],
+      },
 
-        {
-          id: 4,
-          title: '囚徒',
-        },
+      // {
+      //   id: 'lane4',
+      //   title: '我是女巫',
+      //   cards: [],
+      // },
 
-        {
-          id: 5,
-          title: '2009',
-        },
-
-        {
-          id: 6,
-          title: '桃子',
-        },
-
-        {
-          id: 7,
-          title: '鼠大王',
-        },
-
-        {
-          id: 8,
-          title: '李斯',
-        },
-
-        {
-          id: 9,
-          title: '沐沐',
-        },
-
-        {
-          id: 10,
-          title: 'KS',
-        },
-
-        {
-          id: 11,
-          title: 'JY',
-        },
-
-        {
-          id: 12,
-          title: '大宝',
-        },
-      ],
-    },
-
-    {
-      id: 2,
-      title: '我是预言家(A)',
-      cards: [],
-    },
-
-    {
-      id: 3,
-      title: '我是预言家(B)',
-      cards: [],
-    },
-
-    {
-      id: 4,
-      title: '我是预言家(C)',
-      cards: [],
-    },
-  ]);
+      // {
+      //   id: 'lane5',
+      //   title: '我才是女巫',
+      //   cards: [],
+      // },
+    ],
+  });
 
   const handleCardClick = (cardId, _, laneId) => {
     let roleName = roleConstants[0];
@@ -115,7 +125,7 @@ const App = () => {
       [cardId]: roleName,
     });
 
-    const currentCard = data[0].cards[cardId - 1];
+    const currentCard = initData[cardId - 1];
     if (!currentCard) {
       return;
     }
@@ -126,11 +136,10 @@ const App = () => {
     eventBus.publish({
       type: 'UPDATE_CARD',
       laneId,
-      // laneId: 0,
       card: {
         ...currentCard,
+        laneId,
         label: <Icon type={roleName} />,
-        description: <Guess good={[]} bad={[]} />,
         style: {
           backgroundColor: ['wolf'].includes(roleName)
             ? 'pink'
@@ -146,13 +155,18 @@ const App = () => {
     <div>
       <Board
         className={styles['smooth-dnd-draggable-wrapper']}
-        data={{ lanes: data }}
+        data={data}
         eventBusHandle={setEventBus}
         // onCardDelete={() => {
         //   return false;
         // }}
+        // editable
+        canAddLanes
+        // editLaneTitle
+        hideCardDeleteIcon
         // onDataChange={handleDataChange}
         onCardClick={handleCardClick}
+        // onCardUpdate={function noRefCheck(){}}
         // onLaneAdd={function noRefCheck(){}}
       />
     </div>

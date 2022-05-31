@@ -709,9 +709,9 @@
       s = {
         witch: '\u5973\u5deb',
         eye: '\u9884\u8a00\u5bb6',
-        shield: '\u5b88\u536b',
+        shield: '\u767d\u75f4',
         gun: '\u730e\u4eba',
-        normal: '\u5e73\u6c11',
+        normal: '\u6751\u6c11',
         wolf: '\u72fc\u4eba',
       },
       f = (e) =>
@@ -728,98 +728,78 @@
                 }),
               ],
             })
-          : Object(l['jsx'])(l['Fragment'], {}),
+          : '',
       d = f,
-      p = (e) =>
-        Object(l['jsxs'])('div', {
-          children: [
-            e.good &&
-              e.good.length > 0 &&
-              Object(l['jsxs'])('p', {
-                children: [
-                  '\u597d\u4eba:',
-                  Object(l['jsx'])('ul', {
-                    children: e.good.map((e) =>
-                      Object(l['jsx'])('li', { children: e }),
-                    ),
-                  }),
-                ],
-              }),
-            e.bad &&
-              e.bad.length > 0 &&
-              Object(l['jsxs'])('p', {
-                children: [
-                  '\u574f\u4eba:',
-                  Object(l['jsx'])('ul', {
-                    children: e.bad.map((e) =>
-                      Object(l['jsx'])('li', { children: e }),
-                    ),
-                  }),
-                ],
-              }),
-          ],
-        }),
-      h = p,
-      v = ['eye', 'witch', 'shield', 'gun', 'normal', 'wolf', null],
-      g = n('5TiY'),
-      y = n.n(g),
-      m = void 0,
-      b = (e) => {
-        m = e;
+      p = ['eye', 'witch', 'gun', 'shield', 'normal', 'wolf', null],
+      h = n('5TiY'),
+      v = n.n(h),
+      g = void 0,
+      y = (e) => {
+        g = e;
       },
-      w = () => {
+      m = [
+        { id: 1, title: '1#\u5c0f\u82cd' },
+        { id: 2, title: '2#\u5c11\u5e2e\u4e3b' },
+        { id: 3, title: '3#\u8001\u515a' },
+        { id: 4, title: '4#\u56da\u5f92' },
+        { id: 5, title: '5#2009' },
+        { id: 6, title: '6#\u6843\u5b50' },
+        { id: 7, title: '7#\u9f20\u5927\u738b' },
+        { id: 8, title: '8#\u674e\u65af' },
+        { id: 9, title: '9#\u6c90\u6c90' },
+        { id: 10, title: '10#KS' },
+        { id: 11, title: '11#JY' },
+        { id: 12, title: '12#\u5927\u5b9d' },
+      ],
+      b = () => {
         var e = Object(a['useState'])({}),
           t = Object(o['a'])(e, 2),
           n = t[0],
           i = t[1],
-          c = Object(a['useState'])([
-            {
-              id: 1,
-              title: '\u4e0d\u7ad9\u961f',
-              editable: !1,
-              cards: [
-                { id: 1, title: '\u5c0f\u82cd' },
-                { id: 2, title: '\u5c11\u5e2e\u4e3b' },
-                { id: 3, title: '\u8001\u515a' },
-                { id: 4, title: '\u56da\u5f92' },
-                { id: 5, title: '2009' },
-                { id: 6, title: '\u6843\u5b50' },
-                { id: 7, title: '\u9f20\u5927\u738b' },
-                { id: 8, title: '\u674e\u65af' },
-                { id: 9, title: '\u6c90\u6c90' },
-                { id: 10, title: 'KS' },
-                { id: 11, title: 'JY' },
-                { id: 12, title: '\u5927\u5b9d' },
-              ],
-            },
-            { id: 2, title: '\u6211\u662f\u9884\u8a00\u5bb6(A)', cards: [] },
-            { id: 3, title: '\u6211\u662f\u9884\u8a00\u5bb6(B)', cards: [] },
-            { id: 4, title: '\u6211\u662f\u9884\u8a00\u5bb6(C)', cards: [] },
-          ]),
+          c = Object(a['useState'])({
+            lanes: [
+              {
+                id: 'lane1',
+                title: '\u4e0d\u7ad9\u8fb9',
+                editable: !1,
+                cards: m,
+              },
+              {
+                id: 'lane2',
+                title: '\u6211\u662f\u9884\u8a00\u5bb6',
+                cards: [],
+              },
+              {
+                id: 'lane3',
+                title: '\u6211\u624d\u662f\u9884\u8a00\u5bb6',
+                cards: [],
+              },
+            ],
+          }),
           s = Object(o['a'])(c, 2),
           f = s[0],
-          p =
+          h =
             (s[1],
             (e, t, o) => {
-              var a = v[0];
+              var a = p[0];
               if (n[e]) {
-                var u = v.indexOf(n[e]);
-                a = v[(u + 1) % v.length];
+                var u = p.indexOf(n[e]);
+                a = p[(u + 1) % p.length];
               }
               i(Object(r['a'])(Object(r['a'])({}, n), {}, { [e]: a }));
-              var c = f[0].cards[e - 1];
+              var c = m[e - 1];
               c &&
                 (console.log('\u5f53\u524d\u5361\u7247'),
                 console.log(e),
-                m.publish({
+                g.publish({
                   type: 'UPDATE_CARD',
                   laneId: o,
                   card: Object(r['a'])(
                     Object(r['a'])({}, c),
                     {},
                     {
+                      laneId: o,
                       label: Object(l['jsx'])(d, { type: a }),
-                      description: Object(l['jsx'])(h, { good: [], bad: [] }),
                       style: {
                         backgroundColor: ['wolf'].includes(a)
                           ? 'pink'
@@ -833,14 +813,16 @@
             });
         return Object(l['jsx'])('div', {
           children: Object(l['jsx'])(u.a, {
-            className: y.a['smooth-dnd-draggable-wrapper'],
-            data: { lanes: f },
-            eventBusHandle: b,
-            onCardClick: p,
+            className: v.a['smooth-dnd-draggable-wrapper'],
+            data: f,
+            eventBusHandle: y,
+            canAddLanes: !0,
+            hideCardDeleteIcon: !0,
+            onCardClick: h,
           }),
         });
       };
-    t['default'] = w;
+    t['default'] = b;
   },
   '0eef': function (e, t, n) {
     'use strict';

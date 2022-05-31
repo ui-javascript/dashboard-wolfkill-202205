@@ -13,16 +13,18 @@ const imgMap = {
 const nameMap = {
   witch: '女巫',
   eye: '预言家',
-  shield: '守卫',
+  shield: '白痴',
   gun: '猎人',
-  normal: '平民',
+  normal: '村民',
   wolf: '狼人',
 };
 
 const Icon = (props) => {
   if (!props.type) {
-    return <></>;
+    return '';
   }
+
+  // return nameMap[props.type]
   return (
     <>
       <img
