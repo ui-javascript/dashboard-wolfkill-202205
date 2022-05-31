@@ -760,25 +760,25 @@
               lanes: [
                 { id: 'lane1', title: '\u4e0d\u7ad9\u8fb9', cards: g },
                 {
+                  id: 'lane6',
+                  title: '\u5927\u6982\u7387\u662f\u72fc\u4eba',
+                  label: Object(u['jsx'])(f, { type: 'wolf' }),
+                  cards: [],
+                  style: { backgroundColor: 'pink' },
+                },
+                {
                   id: 'lane2',
-                  title: '\u6211\u662f\u9884\u8a00\u5bb6',
+                  title: '\u6211\u662f\u9884\u8a00\u5bb6-\u9635\u8425A',
                   label: Object(u['jsx'])(f, { type: 'eye' }),
                   cards: [],
                   style: { backgroundColor: '#eec' },
                 },
                 {
                   id: 'lane3',
-                  title: '\u6211\u624d\u662f\u9884\u8a00\u5bb6',
+                  title: '\u6211\u624d\u662f\u9884\u8a00\u5bb6-\u9635\u8425B',
                   label: Object(u['jsx'])(f, { type: 'eye' }),
                   cards: [],
                   style: { backgroundColor: '#eec' },
-                },
-                {
-                  id: 'lane6',
-                  title: '\u5927\u6982\u7387\u662f\u72fc\u4eba',
-                  label: Object(u['jsx'])(f, { type: 'wolf' }),
-                  cards: [],
-                  style: { backgroundColor: 'pink' },
                 },
               ],
             })),
@@ -794,6 +794,7 @@
             canAddLanes: !0,
             editLaneTitle: !0,
             hideCardDeleteIcon: !0,
+            laneDraggable: !0,
           }),
         });
       };

@@ -174,8 +174,18 @@ const App = () => {
       },
 
       {
+        id: 'lane6',
+        title: '大概率是狼人',
+        label: <Icon type="wolf" />,
+        cards: [],
+        style: {
+          backgroundColor: 'pink',
+        },
+      },
+
+      {
         id: 'lane2',
-        title: '我是预言家',
+        title: '我是预言家-阵营A',
         label: <Icon type="eye" />,
         cards: [],
         style: {
@@ -185,21 +195,11 @@ const App = () => {
 
       {
         id: 'lane3',
-        title: '我才是预言家',
+        title: '我才是预言家-阵营B',
         label: <Icon type="eye" />,
         cards: [],
         style: {
           backgroundColor: '#eec',
-        },
-      },
-
-      {
-        id: 'lane6',
-        title: '大概率是狼人',
-        label: <Icon type="wolf" />,
-        cards: [],
-        style: {
-          backgroundColor: 'pink',
         },
       },
 
@@ -270,6 +270,7 @@ const App = () => {
         canAddLanes
         editLaneTitle
         hideCardDeleteIcon
+        laneDraggable
         // onDataChange={handleDataChange}
         // onCardClick={handleCardClick}
         // onCardUpdate={function noRefCheck(){}}
