@@ -1,65 +1,102 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Board from 'react-trello';
 import Icon from './components/Icon';
 import Guess from './components/Guess';
+import { roleConstants } from './utils/roleConstants';
+
+let eventBus = undefined;
+
+const setEventBus = (handle) => {
+  eventBus = handle;
+};
 
 const App = () => {
-  const [role, setRole] = useState({
+  const [roles, setRoles] = useState({
     1: 'gun',
   });
 
-  const [data, setData] = useState({
-    lanes: [
-      {
-        id: 'lane1',
-        title: '不站队',
-        // label: '2/2',
-        cards: [
-          {
-            id: '1',
-            title: '苍姐',
-            editable: false,
-            description: <Guess good={[]} bad={[]} />,
-            style: {
-              backgroundColor: '#eec',
-            },
-            label: <Icon type={role[1]} />,
-          },
+  const [data, setData] = useState([
+    {
+      id: '1',
+      title: '不站队',
+      editable: false,
+      // label: '2/2',
+      cards: [
+        {
+          id: '1',
+          title: '苍姐',
+          description: <Guess good={[]} bad={[]} />,
+        },
 
-          {
-            id: '10',
-            title: 'KS',
-            editable: false,
-            description: <Guess good={[]} bad={[]} />,
-            label: <Icon type={role[2]} />,
-          },
-        ],
+        {
+          id: '2',
+          title: 'KS',
+          description: <Guess good={[]} bad={[]} />,
+        },
+      ],
+    },
+
+    {
+      id: '2',
+      title: '我是预言家(A)',
+      cards: [],
+    },
+
+    {
+      id: '3',
+      title: '我是预言家(B)',
+      cards: [],
+    },
+  ]);
+
+  const handleCardClick = (cardId, _, laneId) => {
+    let roleName = roleConstants[0];
+    if (roles[cardId]) {
+      const idx = roleConstants.indexOf(roles[cardId]);
+      roleName = roleConstants[(idx + 1) % roleConstants.length];
+    }
+
+    setRoles({
+      ...roles,
+      [cardId]: roleName,
+    });
+
+    const currentCard = data[laneId - 1].cards[cardId - 1];
+    if (!currentCard) {
+      return;
+    }
+
+    console.log('当前卡片');
+    console.log(cardId);
+
+    eventBus.publish({
+      type: 'UPDATE_CARD',
+      laneId,
+      card: {
+        ...currentCard,
+        label: <Icon type={roleName} />,
+        style: {
+          backgroundColor: ['wolf'].includes(roleName)
+            ? 'pink'
+            : ['eye', 'witch', 'shield', 'gun'].includes(roleName)
+            ? '#eec'
+            : null,
+        },
       },
-
-      {
-        id: 'lane2',
-        title: '我是预言家(A)',
-        // label: '0/0',
-        cards: [],
-      },
-
-      {
-        id: 'lane3',
-        title: '我是预言家(B)',
-        // label: '0/0',
-        cards: [],
-      },
-    ],
-  });
-
-  const handleClick = (item) => {
-    console.log(item);
-    // setData(item)
+    });
   };
 
   return (
     <div>
-      <Board data={data} onClick={handleClick} />
+      <Board
+        data={{ lanes: data }}
+        eventBusHandle={setEventBus}
+        onCardDelete={() => {
+          return false;
+        }}
+        // onDataChange={handleDataChange}
+        onCardClick={handleCardClick}
+      />
     </div>
   );
 };
