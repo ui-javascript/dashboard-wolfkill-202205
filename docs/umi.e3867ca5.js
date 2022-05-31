@@ -774,21 +774,27 @@
           i = t[1],
           c = Object(a['useState'])([
             {
-              id: '1',
+              id: 1,
               title: '\u4e0d\u7ad9\u961f',
               editable: !1,
               cards: [
-                { id: '1', title: '\u82cd\u59d0' },
-                {
-                  id: '2',
-                  title: 'KS',
-                  description: Object(l['jsx'])(h, { good: [], bad: [] }),
-                },
+                { id: 1, title: '\u5c0f\u82cd' },
+                { id: 2, title: '\u5c11\u5e2e\u4e3b' },
+                { id: 3, title: '\u8001\u515a' },
+                { id: 4, title: '\u56da\u5f92' },
+                { id: 5, title: '2009' },
+                { id: 6, title: '\u6843\u5b50' },
+                { id: 7, title: '\u9f20\u5927\u738b' },
+                { id: 8, title: '\u674e\u65af' },
+                { id: 9, title: '\u6c90\u6c90' },
+                { id: 10, title: 'KS' },
+                { id: 11, title: 'JY' },
+                { id: 12, title: '\u5927\u5b9d' },
               ],
             },
-            { id: '2', title: '\u6211\u662f\u9884\u8a00\u5bb6(A)', cards: [] },
-            { id: '3', title: '\u6211\u662f\u9884\u8a00\u5bb6(B)', cards: [] },
-            { id: '4', title: '\u6211\u662f\u9884\u8a00\u5bb6(C)', cards: [] },
+            { id: 2, title: '\u6211\u662f\u9884\u8a00\u5bb6(A)', cards: [] },
+            { id: 3, title: '\u6211\u662f\u9884\u8a00\u5bb6(B)', cards: [] },
+            { id: 4, title: '\u6211\u662f\u9884\u8a00\u5bb6(C)', cards: [] },
           ]),
           s = Object(o['a'])(c, 2),
           f = s[0],
@@ -813,6 +819,7 @@
                     {},
                     {
                       label: Object(l['jsx'])(d, { type: a }),
+                      description: Object(l['jsx'])(h, { good: [], bad: [] }),
                       style: {
                         backgroundColor: ['wolf'].includes(a)
                           ? 'pink'

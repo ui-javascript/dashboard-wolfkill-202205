@@ -16,38 +16,87 @@ const App = () => {
 
   const [data, setData] = useState([
     {
-      id: '1',
+      id: 1,
       title: '不站队',
       editable: false,
       // label: '2/2',
       cards: [
         {
-          id: '1',
-          title: '苍姐',
+          id: 1,
+          title: '小苍',
         },
 
         {
-          id: '2',
+          id: 2,
+          title: '少帮主',
+        },
+
+        {
+          id: 3,
+          title: '老党',
+        },
+
+        {
+          id: 4,
+          title: '囚徒',
+        },
+
+        {
+          id: 5,
+          title: '2009',
+        },
+
+        {
+          id: 6,
+          title: '桃子',
+        },
+
+        {
+          id: 7,
+          title: '鼠大王',
+        },
+
+        {
+          id: 8,
+          title: '李斯',
+        },
+
+        {
+          id: 9,
+          title: '沐沐',
+        },
+
+        {
+          id: 10,
           title: 'KS',
-          description: <Guess good={[]} bad={[]} />,
+        },
+
+        {
+          id: 11,
+          title: 'JY',
+        },
+
+        {
+          id: 12,
+          title: '大宝',
         },
       ],
     },
 
     {
-      id: '2',
+      id: 2,
       title: '我是预言家(A)',
       cards: [],
     },
 
     {
-      id: '3',
+      id: 3,
       title: '我是预言家(B)',
       cards: [],
     },
 
     {
-      id: '4',
+      id: 4,
       title: '我是预言家(C)',
       cards: [],
     },
