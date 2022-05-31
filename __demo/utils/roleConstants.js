@@ -5,5 +5,5 @@ export const roleConstants = [
   'gun',
   'normal',
   'wolf',
-  'null',
+  null,
 ];

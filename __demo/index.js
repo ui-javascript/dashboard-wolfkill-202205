@@ -53,6 +53,7 @@ const App = () => {
     let roleName = roleConstants[0];
     if (roles[cardId]) {
       const idx = roleConstants.indexOf(roles[cardId]);
+      debugger;
       roleName = roleConstants[(idx + 1) % roleConstants.length];
     }
 
