@@ -5,7 +5,8 @@ const imgMap = {
   shield:
     'https://luo0412.oss-cn-hangzhou.aliyuncs.com/1653995340580-ynjTCz7rFJa3.png',
   gun: 'https://luo0412.oss-cn-hangzhou.aliyuncs.com/1653995344803-7nZYr6MbKnH5.png',
-  null: 'https://luo0412.oss-cn-hangzhou.aliyuncs.com/1653995322936-WkAbQ5J4AT34.png',
+  normal:
+    'https://luo0412.oss-cn-hangzhou.aliyuncs.com/1653995322936-WkAbQ5J4AT34.png',
   wolf: 'https://luo0412.oss-cn-hangzhou.aliyuncs.com/1653995359258-2zsDCryDRMxy.png',
 };
 
@@ -14,7 +15,7 @@ const nameMap = {
   eye: '预言家',
   shield: '守卫',
   gun: '猎人',
-  null: '平民',
+  normal: '平民',
   wolf: '狼人',
 };
 

@@ -3,7 +3,7 @@ export const roleConstants = [
   'witch',
   'shield',
   'gun',
-  'null',
+  'normal',
   'wolf',
-  null,
+  'null',
 ];

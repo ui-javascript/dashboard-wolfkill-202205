@@ -91,11 +91,13 @@ const App = () => {
       <Board
         data={{ lanes: data }}
         eventBusHandle={setEventBus}
-        onCardDelete={() => {
-          return false;
-        }}
+        // onCardDelete={() => {
+        //   return false;
+        // }}
         // onDataChange={handleDataChange}
+        editable={false}
         onCardClick={handleCardClick}
+        // onLaneAdd={function noRefCheck(){}}
       />
     </div>
   );
