@@ -29,11 +29,10 @@ const Icon = (props) => {
         style={{
           width: 20,
           height: 20,
-          marginLeft: 2,
         }}
         src={imgMap[props.type]}
       />
-      <span>{nameMap[props.type]}</span>
+      <span style={{ marginLeft: 2 }}>{nameMap[props.type]}</span>
     </>
   );
 };

@@ -3,6 +3,7 @@ import Board from 'react-trello';
 import Icon from './components/Icon';
 import Guess from './components/Guess';
 import { roleConstants } from './utils/roleConstants';
+import styles from './index.less';
 
 let eventBus = undefined;
 
@@ -11,9 +12,7 @@ const setEventBus = (handle) => {
 };
 
 const App = () => {
-  const [roles, setRoles] = useState({
-    1: 'gun',
-  });
+  const [roles, setRoles] = useState({});
 
   const [data, setData] = useState([
     {
@@ -25,7 +24,6 @@ const App = () => {
         {
           id: '1',
           title: '苍姐',
-          description: <Guess good={[]} bad={[]} />,
         },
 
         {
@@ -47,6 +45,12 @@ const App = () => {
       title: '我是预言家(B)',
       cards: [],
     },
+
+    {
+      id: '4',
+      title: '我是预言家(C)',
+      cards: [],
+    },
   ]);
 
   const handleCardClick = (cardId, _, laneId) => {
@@ -62,7 +66,7 @@ const App = () => {
       [cardId]: roleName,
     });
 
-    const currentCard = data[laneId - 1].cards[cardId - 1];
+    const currentCard = data[0].cards[cardId - 1];
     if (!currentCard) {
       return;
     }
@@ -73,9 +77,11 @@ const App = () => {
     eventBus.publish({
       type: 'UPDATE_CARD',
       laneId,
+      // laneId: 0,
       card: {
         ...currentCard,
         label: <Icon type={roleName} />,
+        description: <Guess good={[]} bad={[]} />,
         style: {
           backgroundColor: ['wolf'].includes(roleName)
             ? 'pink'
@@ -90,13 +96,13 @@ const App = () => {
   return (
     <div>
       <Board
+        className={styles['smooth-dnd-draggable-wrapper']}
         data={{ lanes: data }}
         eventBusHandle={setEventBus}
         // onCardDelete={() => {
         //   return false;
         // }}
         // onDataChange={handleDataChange}
-        editable={false}
         onCardClick={handleCardClick}
         // onLaneAdd={function noRefCheck(){}}
       />
