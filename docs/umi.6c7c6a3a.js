@@ -749,6 +749,9 @@
         { id: 10, title: '10#', description: v },
         { id: 11, title: '11#', description: v },
         { id: 12, title: '12#', description: v },
+        { id: 13, title: '13#', description: v },
+        { id: 14, title: '14#', description: v },
+        { id: 15, title: '15#', description: v },
       ],
       y = () => {
         var e = Object(o['useState'])({}),
@@ -762,6 +765,7 @@
                 {
                   id: 'lane6',
                   title: '\u5927\u6982\u7387\u662f\u72fc\u4eba',
+                  hideCardDeleteIcon: !0,
                   label: Object(u['jsx'])(f, { type: 'wolf' }),
                   cards: [],
                   style: { backgroundColor: 'pink' },
@@ -793,7 +797,6 @@
             editable: !0,
             canAddLanes: !0,
             editLaneTitle: !0,
-            hideCardDeleteIcon: !0,
             laneDraggable: !0,
           }),
         });

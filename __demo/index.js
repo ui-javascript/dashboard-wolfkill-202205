@@ -85,6 +85,24 @@ const initData = [
     title: '12#',
     description: DEFAULT_DESCRIPTION,
   },
+
+  {
+    id: 13,
+    title: '13#',
+    description: DEFAULT_DESCRIPTION,
+  },
+
+  {
+    id: 14,
+    title: '14#',
+    description: DEFAULT_DESCRIPTION,
+  },
+
+  {
+    id: 15,
+    title: '15#',
+    description: DEFAULT_DESCRIPTION,
+  },
 ];
 
 // const initData = [
@@ -176,6 +194,7 @@ const App = () => {
       {
         id: 'lane6',
         title: '大概率是狼人',
+        hideCardDeleteIcon: true,
         label: <Icon type="wolf" />,
         cards: [],
         style: {
@@ -246,6 +265,7 @@ const App = () => {
         // label : <Icon type={roleName} />,
         // label: nameMap[roleName],
         description: currentCard.description || DEFAULT_DESCRIPTION,
+        // hideCardDeleteIcon: true,
         style: {
           backgroundColor: ['wolf'].includes(roleName)
             ? 'pink'
@@ -269,7 +289,7 @@ const App = () => {
         editable
         canAddLanes
         editLaneTitle
-        hideCardDeleteIcon
+        // hideCardDeleteIcon
         laneDraggable
         // onDataChange={handleDataChange}
         // onCardClick={handleCardClick}
